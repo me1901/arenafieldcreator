@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATE FIELD</title>
+</head>
+<body>
+    
+    <script>
+        let imgs = ["emptyitem.png", "wallitem.png", "startitem.png"];
+        let field = new Array(10).fill(new Array(10).fill(0));
+        for(let i = 0; i<10; ++i){
+            for(let j = 0; j<10; ++j){
+                document.write('<img src="emptyitem.png" id = "'+i+':'+j+'" border = "1"> ');
+                document.getElementById(i+":"+j).onclick = function fn(event){
+                    field[i][j]++;
+                    field[i][j]%=3;
+                    document.getElementById(i+":"+j).src = imgs[field[i][j]];
+                }
+            }
+            document.write("<br>");
+        }
+    </script>
+</body>
+</html>
